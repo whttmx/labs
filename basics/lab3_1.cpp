@@ -10,15 +10,15 @@ int main()
     
     if (n <= 0) 
     {
-        std::cout << "Последовательность пуста или некорректна." << std::endl;
+        std::cout << "Последовательность неверна" << std::endl;
         return 0;
     }
     
     int sum = 0;
     int maxnum = 0;
-    int maxind = -1;
+    int maxind = 0;
     bool found = false;
-    bool firstnum = true;
+    bool fnum = true;
     
     std::cout << "Введите " << n << " целых чисел:" << std::endl;
     
@@ -26,21 +26,25 @@ int main()
     {
         int num;
         std::cin >> num;
+        int modnum = abs(num);
 
-        if (num % 3 == 0 || num % 5 == 0 || num % 7 == 0) 
+        if (modnum % 3 == 0 || modnum % 5 == 0 || modnum % 7 == 0) 
         {
             continue;
         }
 
         sum += num;
         found = true;
-        
-        if (firstnum) {
+
+        if (fnum)
+        {
             maxnum = num;
             maxind = i;
-            firstnum = false;
-        } else {
-            if (num > maxnum) 
+            fnum = false;
+        }
+        else
+        {
+            if (num > maxnum)
             {
                 maxnum = num;
                 maxind = i;
@@ -56,9 +60,11 @@ int main()
     } 
     else 
     {
-        std::cout << "В последовательности нет чисел не кратных 3 5 и 7." << std::endl;
+        std::cout << "В последовательности нет чисел не кратных 3 5 и 7" << std::endl;
     }
 
+    // --------------Второй пункт------------------//
+    
     int x;
     std::cout << "Введите целое число |X| < 1000: ";
     std::cin >> x;
@@ -78,14 +84,14 @@ int main()
     }
 
     int absX = abs(x);
-    int temp = absX;
+    int tmp = absX;
 
     int count = 0;
 
-    while (temp > 0)
+    while (tmp > 0)
     {
         count++;
-        temp /= 10;
+        tmp /= 10;
     }
 
     int firstDig = absX;

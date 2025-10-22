@@ -1,24 +1,25 @@
 #include <iostream>
-using namespace std;
 
 int main() {
 
     int array[8];
     
-    cout << "Введите " << 8 << " целых чисел для массива:" << endl;
+    std::cout << "Введите " << 8 << " целых чисел для массива:" << std::endl;
     for (int i = 0; i < 8; i++) {
-        cout << "Элемент " << i << ": ";
-        cin >> array[i];
+        std::cout << "Элемент " << i << ": ";
+        std::cin >> array[i];
     }
     
-    cout << "Исходный массив: ";
-    for (int i = 0; i < 8; i++) {
-        cout << array[i] << " ";
+    std::cout << "Исходный массив: ";
+    for (int i = 0; i < 8; i++) 
+    {
+        std::cout << array[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     
     int count25 = 0;
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) 
+    {
         if (array[i] == 25) {
             count25++;
         }
@@ -26,7 +27,7 @@ int main() {
     
     if (count25 > 2) 
     {
-        cout << "Число 25 встречается больше 2 раз" << endl;
+        std::cout << "Число 25 встречается больше 2 раз" << std::endl;
         
         for (int i = 0; i < 8 - 1; i++) {
             for (int j = 0; j < 8 - i - 1; j++) {
@@ -39,32 +40,30 @@ int main() {
             }
         }
         
-        cout << "Отсортированный массив: ";
+        std::cout << "Отсортированный массив: ";
         for (int i = 0; i < 8; i++) {
-            cout << array[i] << " ";
+            std::cout << array[i] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     } else {
-        cout << "Число 25 встречается два раза или меньше" << endl;
+        std::cout << "Число 25 встречается два раза или меньше" << std::endl;
     }
     
-    const int ROWS = 3;
-    const int COLS = 4;
     int matrix[3][4];
     
-    cout << "Введите элементы матрицы 3x4" << endl;
+    std::cout << "Введите элементы матрицы 3x4" << std::endl;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            cin >> matrix[i][j];
+            std::cin >> matrix[i][j];
         }
     }
     
-    cout << "Исходная матрица:" << endl;
+    std::cout << "Исходная матрица:" << std::endl;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            cout << matrix[i][j] << "\t";
+            std::cout << matrix[i][j] << "\t";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
     
     int maxZeroCount = -1;
@@ -85,7 +84,7 @@ int main() {
     }
 
     if (maxZeroCount > 0) {
-        cout << "Строка с наибольшим количеством нулей: " << rowWithMostZeros << endl;
+        std::cout << "Строка с наибольшим количеством нулей: " << rowWithMostZeros << std::endl;
         
         for (int j = 0; j < 4; j++) {
             if (matrix[rowWithMostZeros][j] == 0) {
@@ -93,15 +92,15 @@ int main() {
             }
         }
         
-        cout << "Матрица после замены нулей на 888:" << endl;
+        std::cout << "Матрица после замены нулей на 888:" << std::endl;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                cout << matrix[i][j] << "\t";
+                std::cout << matrix[i][j] << "\t";
             }
-            cout << endl;
+            std::cout << std::endl;
         }
     } else {
-        cout << "В матрице нет нулей" << endl;
+        std::cout << "В матрице нет нулей" << std::endl;
     }
     
     return 0;
