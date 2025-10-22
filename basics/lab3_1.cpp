@@ -3,61 +3,100 @@
 
 int main()
 {
-    int n;
-    std::cout << "Введите кол-во чисел в последовательности: ";
-    std::cin >> n; 
 
-    if (n <= 0)
+    int n;
+    std::cout << "Введите количество чисел в последовательности: ";
+    std::cin >> n;
+    
+    if (n <= 0) 
     {
-        std::cout << "Кол-во чисел неккоректно" << std::endl;
+        std::cout << "Последовательность пуста или некорректна." << std::endl;
         return 0;
     }
-
+    
     int sum = 0;
-    int maxNum = 0;
-    int maxInd = -1;
+    int maxnum = 0;
+    int maxind = -1;
     bool found = false;
-    bool firstNum = true;
-
-    std::cout << "Введите " << n << " целых чисел: " << std::endl;
-
-    for (int i = 1; i <= n; i++)
+    bool firstnum = true;
+    
+    std::cout << "Введите " << n << " целых чисел:" << std::endl;
+    
+    for (int i = 1; i <= n; i++) 
     {
         int num;
         std::cin >> num;
 
-        if (num % 3 != 0 && num % 5 != 0 && num % 7 != 0)
+        if (num % 3 == 0 || num % 5 == 0 || num % 7 == 0) 
         {
-            sum += num;
-            found = true;
+            continue;
+        }
 
-            if (firstNum)
+        sum += num;
+        found = true;
+        
+        if (firstnum) {
+            maxnum = num;
+            maxind = i;
+            firstnum = false;
+        } else {
+            if (num > maxnum) 
             {
-                maxNum = num;
-                maxInd = i;
-                firstNum = false;
+                maxnum = num;
+                maxind = i;
             }
-            else
-            {
-                if (num > maxNum)
-                {
-                    maxNum = num;
-                    maxInd = i;
-                }
-            }
-        } 
+        }
     }
 
-    if (found)
+    if (found) 
     {
-        std::cout << "Сумма: " << sum << std::endl;
-        std::cout << "Наибольшее подходящее число: " << maxNum << std::endl;
-        std::cout << "Номер наибольшего подходящего числа: " << maxInd << std::endl;
-    }
-    else
+        std::cout << "Сумма чисел не кратных 3 5 и 7: " << sum << std::endl;
+        std::cout << "Наибольшее подходящее число: " << maxnum << std::endl;
+        std::cout << "Номер наибольшего подходящего числа: " << maxind << std::endl;
+    } 
+    else 
     {
-        std::cout << "Нет чисел, не кратных 3 5 и 7" << std::endl;
+        std::cout << "В последовательности нет чисел не кратных 3 5 и 7." << std::endl;
     }
+
+    int x;
+    std::cout << "Введите целое число |X| < 1000: ";
+    std::cin >> x;
+
+    if (abs(x) >= 1000)
+    {
+        std::cout << "Введено число большее по модулю чем 1000" << std::endl;
+        return 0;
+    }
+
+    if (x == 0)
+    {
+        std::cout << "Количество разрядов: 1" << std::endl;
+        std::cout << "Первая цифра: 0" << std::endl;
+        
+        return 0;
+    }
+
+    int absX = abs(x);
+    int temp = absX;
+
+    int count = 0;
+
+    while (temp > 0)
+    {
+        count++;
+        temp /= 10;
+    }
+
+    int firstDig = absX;
+
+    while (firstDig >= 10)
+    {
+        firstDig /= 10;
+    }
+
+    std::cout << "Количество разрядов: " << count << std::endl;
+    std::cout << "Первая цифра: " << firstDig << std::endl;
 
     return 0;
 }
