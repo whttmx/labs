@@ -48,7 +48,9 @@ int main()
             std::cout << array[i] << " ";
         }
         std::cout << std::endl;
-    } else {
+    } 
+    else 
+    {
         std::cout << "Число 25 встречается два раза или меньше" << std::endl;
     }
 
@@ -80,10 +82,10 @@ int main()
     int maxzero = -1;
     int rowzero = 0;
     
-    for (int i = 0; i < 3; i++) 
+    for (int i = 0; i < row; i++) 
     {
         int count0 = 0;
-        for (int j = 0; j < 4; j++) 
+        for (int j = 0; j < collumn; j++) 
         {
             if (matrix[i][j] == 0) 
             {
@@ -104,7 +106,8 @@ int main()
         
         for (int i = 0; i < 4; i++) 
         {
-            if (matrix[rowzero][i] == 0) {
+            if (matrix[rowzero][i] == 0) 
+            {
                 matrix[rowzero][i] = 888;
             }
         }
