@@ -1,12 +1,14 @@
 #include <iostream>
 
-int main() {
+int main() 
+{
     
     const int number = 8;
     int array[number];
     
     std::cout << "Введите " << 8 << " целых чисел для массива:" << std::endl;
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) 
+    {
         std::cin >> array[i];
     }
     
@@ -20,7 +22,8 @@ int main() {
     int count25 = 0;
     for (int i = 0; i < 8; i++) 
     {
-        if (array[i] == 25) {
+        if (array[i] == 25) 
+        {
             count25++;
         }
     }
@@ -30,12 +33,12 @@ int main() {
         std::cout << "Число 25 встречается больше 2 раз" << std::endl;
         
         for (int i = 0; i < number - 1; i++) {
-            for (int j = 0; j < number - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
+            for (int j = i+1; j < number; j++) {
+                if (array[i] > array[j]) {
 
-                    int tmp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = tmp;
+                    int tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
                 }
             }
         }
@@ -50,7 +53,7 @@ int main() {
     }
 
     //------------------------ Пункт 2----------------------------------//
-    
+
     const int row = 3;
     const int collumn = 4;
     int matrix[row][collumn];
@@ -65,9 +68,9 @@ int main() {
     }
     
     std::cout << "Исходная матрица:" << std::endl;
-    for (int i = 0; i < 3; i++) 
+    for (int i = 0; i < row; i++) 
     {
-        for (int j = 0; j < 4; j++) 
+        for (int j = 0; j < collumn; j++) 
         {
             std::cout << matrix[i][j] << "  ";
         }
@@ -79,25 +82,25 @@ int main() {
     
     for (int i = 0; i < 3; i++) 
     {
-        int zeroCount = 0;
+        int count0 = 0;
         for (int j = 0; j < 4; j++) 
         {
             if (matrix[i][j] == 0) 
             {
-                zeroCount++;
+                count0++;
             }
         }
         
-        if (zeroCount > maxzero) 
+        if (count0 > maxzero) 
         {
-            maxzero = zeroCount;
+            maxzero = count0;
             rowzero = i;
         }
     }
 
     if (maxzero > 0) 
     {
-        std::cout << "Строка с наибольшим количеством нулей: " << rowzero << std::endl;
+        std::cout << "Строка с наибольшим количеством нулей " << rowzero << std::endl;
         
         for (int i = 0; i < 4; i++) 
         {
