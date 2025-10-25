@@ -29,13 +29,13 @@ int main()
     }
     
     if (count25 > 2) 
-    {
-        std::cout << "Число 25 встречается больше 2 раз" << std::endl;
-        
-        for (int i = 0; i < number - 1; i++) {
-            for (int j = i+1; j < number; j++) {
-                if (array[i] > array[j]) {
-
+    {   
+        for (int i = 0; i < number - 1; i++) 
+        {
+            for (int j = i+1; j < number; j++) 
+            {
+                if (array[i] > array[j]) 
+                {
                     int tmp = array[i];
                     array[i] = array[j];
                     array[j] = tmp;
@@ -104,7 +104,7 @@ int main()
     {
         std::cout << "Строка с наибольшим количеством нулей " << rowzero << std::endl;
         
-        for (int i = 0; i < 4; i++) 
+        for (int i = 0; i < collumn; i++) 
         {
             if (matrix[rowzero][i] == 0) 
             {
