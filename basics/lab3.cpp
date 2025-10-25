@@ -28,7 +28,7 @@ int main()
         std::cin >> num;
         int modnum = abs(num);
 
-        if (modnum % 3 == 0 || modnum % 5 == 0 || modnum % 7 == 0) 
+        if (modnum != 0 && (modnum % 3 == 0 || modnum % 5 == 0 || modnum % 7 == 0)) 
         {
             continue;
         }
